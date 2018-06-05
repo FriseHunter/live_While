@@ -10,14 +10,16 @@ class Clock extends React.Component {
   constructor (props) {
   super (props);
   this.state = {
-    date : new Date()
+    date : new Date(),
+    caption : "World",
   };
 }
 
 //Запуск setInterval() после создания компонента
 
 componentDidMount() {
-  this.timerId = setInterval(() => this.tick(), 1000)
+  this.timerId = setInterval(() => this.tick(), 1000);
+
 }
 
 // очистка интервала перед удалением компонента 
@@ -29,14 +31,22 @@ componentWillUnmount() {
 //алгоритм исполняющий обновление setInterval() раз в секунду
 
 tick() {
-  this.setState({
-    date: new Date()
-  });
+  if(this.state.caption === 'World'){
+    this.setState({
+      date: new Date(),
+      caption : "React" 
+    });
+  }else{
+    this.setState({
+      date: new Date(),
+      caption : "World" 
+    });
+  }
 }
   render(){
     return (
       <div className="container">
-        <h1 className="caption">Hello, world!</h1>
+        <h1 className="caption">Hello, {this.state.caption}!</h1>
         <h2>It is 
           <div className="beforeTime">
             <span className="time">{this.state.date.toLocaleTimeString()}</span>
