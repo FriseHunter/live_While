@@ -11,7 +11,7 @@ class Clock extends React.Component {
   super (props);
   this.state = {
     date : new Date(),
-    caption : "World",
+    caption : "Hello, World",
   };
 }
 
@@ -31,22 +31,22 @@ componentWillUnmount() {
 //алгоритм исполняющий обновление setInterval() раз в секунду
 
 tick() {
-  if(this.state.caption === 'World'){
+  if(this.state.caption === 'Hello, World'){
     this.setState({
       date: new Date(),
-      caption : "React" 
+      caption : "I'm studying React now!!" 
     });
   }else{
     this.setState({
       date: new Date(),
-      caption : "World" 
+      caption : "Hello, World" 
     });
   }
 }
   render(){
     return (
       <div className="container">
-        <h1 className="caption">Hello, {this.state.caption}!</h1>
+        <h1 className="caption">{this.state.caption}!</h1>
         <h2>It is 
           <div className="beforeTime">
             <span className="time">{this.state.date.toLocaleTimeString()}</span>

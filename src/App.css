@@ -3,7 +3,9 @@
   margin: 0 auto;
 }
 .container{
+  margin: 50px auto;
   text-align: center;
+  color: #555;
 }
 .beforeTime{
  width: 300px;
