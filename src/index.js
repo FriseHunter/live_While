@@ -6,6 +6,15 @@ import './App.css'
 // import registerServiceWorker from './registerServiceWorker';
 
 
+function FormatData(props){
+  return(
+    <h2>It is 
+          <div className="beforeTime">
+            <span className="time">{props.date.toLocaleTimeString()}</span>
+          </div>
+        </h2>
+  );
+}
 class Clock extends React.Component {
   constructor (props) {
   super (props);
@@ -47,11 +56,7 @@ tick() {
     return (
       <div className="container">
         <h1 className="caption">{this.state.caption}!</h1>
-        <h2>It is 
-          <div className="beforeTime">
-            <span className="time">{this.state.date.toLocaleTimeString()}</span>
-          </div>
-        </h2>
+        <FormatData date={this.state.date}/>
       </div>
     );
   }
